@@ -13,6 +13,7 @@ void freeVM() {
 
 static InterpretResult run() {
 #define READ_BYTE() (*vm.ip++)
+#define READ_CONSTANT() (vm.chunk->constants.values[READ_BYTE()])
 
     for(; ;) {
         uint8_t instruction;
@@ -29,6 +30,7 @@ static InterpretResult run() {
         }
     }
 #undef READ_BYTE
+#undef READ_CONSTANT
 }
 
 InterpretResult interpret(Chunk* chunk) {
