@@ -3,11 +3,16 @@
 #define BYTECODE_VIRTUAL_MACHINE_VM_H
 
 #include "chunk.h"
+#include "value.h"
 #include <stdio.h>
+
+#define STACK_MAX  256
 
 typedef struct {
     Chunk* chunk;
     uint8_t* ip;
+    Value stack[STACK_MAX];
+    Value* stackTop;
 } VM;
 
 typedef enum {
@@ -19,5 +24,7 @@ typedef enum {
 void initVM();
 void freeVM();
 InterpretResult interpret(Chunk* chunk);
+void push(Value value);
+Value pop();
 
 #endif //BYTECODE_VIRTUAL_MACHINE_VM_H
