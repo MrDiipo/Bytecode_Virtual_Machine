@@ -1,0 +1,7 @@
+
+#ifndef BYTECODE_VIRTUAL_MACHINE_SCANNER_H
+#define BYTECODE_VIRTUAL_MACHINE_SCANNER_H
+
+void initScanner(const char* source);
+
+#endif //BYTECODE_VIRTUAL_MACHINE_SCANNER_H
