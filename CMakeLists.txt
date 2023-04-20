@@ -3,4 +3,4 @@ project(Bytecode_Virtual_Machine C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Bytecode_Virtual_Machine main.c common.c common.h chunk.c chunk.h memory.c memory.h debug.c debug.h value.c value.h vm.c vm.h compiler.c compiler.h scanner.c scanner.h)
+add_executable(Bytecode_Virtual_Machine main.c common.c common.h chunk.c chunk.h memory.c memory.h debug.c debug.h value.c value.h vm.c vm.h compiler.c compiler.h scanner.c scanner.h object.c object.h table.c table.h)
