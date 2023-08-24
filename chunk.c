@@ -1,5 +1,6 @@
 #include "chunk.h"
 #include "memory.h"
+#include "vm.h"
 #include <stdlib.h>
 
 void initChunk(Chunk* chunk) {
@@ -31,8 +32,10 @@ void writeChunk(Chunk* chunk, uint8_t byte, int line) {
 }
 
 int addConstant(Chunk* chunk, Value value) {
+    push(value);
     writeValueArray(&chunk->constants, value);
+    pop();
     return chunk->constants.count - 1;
 }
 
-
+// class CoffeeMaker { init(coffee) { this.coffee = coffee;} brew() { print "Enjoy your cup of " + this.coffee;  this.coffee = nil; } } var maker = CoffeeMaker("coffee and chicory"); maker.brew();

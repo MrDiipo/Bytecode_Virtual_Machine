@@ -1,5 +1,4 @@
 
-#include <stdio.h>
 #include <string.h>
 #include "common.h"
 #include "scanner.h"
@@ -76,7 +75,7 @@ static void skipWhitespace() {
     for(; ;) {
         char c = peek();
         switch (c) {
-            case '  ':
+            case ' ':
             case '\r':
             case '\t':
                 advance();
@@ -196,7 +195,7 @@ Token scanToken() {
         case '=': return makeToken(match('=') ? TOKEN_EQUAL_EQUAL : TOKEN_EQUAL);
         case '<': return makeToken(match('=') ? TOKEN_LESS_EQUAL : TOKEN_LESS);
         case '>': return makeToken(match('=') ? TOKEN_GREATER_EQUAL : TOKEN_GREATER);
+        case '"': return string();
     }
-
     return errorToken("Unexpected character.");
 }

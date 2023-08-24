@@ -3,7 +3,9 @@
 #define BYTECODE_VIRTUAL_MACHINE_COMPILER_H
 
 #include "vm.h"
+#include "object.h"
 
-bool compile(const char* source, Chunk* chunk);
+ObjFunction* compile(const char* source);
+void markCompilerRoots();
 
 #endif //BYTECODE_VIRTUAL_MACHINE_COMPILER_H
